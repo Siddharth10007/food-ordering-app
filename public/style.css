@@ -393,6 +393,8 @@ button.filter-veg {
   cursor: pointer;
   font-size: 1rem;
   transition: background-color 0.3s, transform 0.3s;
+  margin-left: 10px;
+  margin-bottom: 5px;
 }
 
 button.filter-veg:hover {
@@ -409,6 +411,8 @@ button.filter-non-veg {
   cursor: pointer;
   font-size: 1rem;
   transition: background-color 0.3s, transform 0.3s;
+  margin-left: 10px;
+  margin-bottom: 5px;
 }
 
 button.filter-non-veg:hover {
