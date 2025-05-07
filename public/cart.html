@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Cart</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Your Cart</h1>
+    <nav>
+      <a href="index.html">← Back to Menu</a>
+    </nav>
+    <div class="theme-toggle">
+      <label class="switch">
+        <input type="checkbox" id="theme-toggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+    <button class="filter-non-veg" onclick="clearCart()" style="margin-top: 10px;">Clear Cart</button>
+
+  </header>
+
+  <section class="cart-section">
+    <div id="cart-items"></div>
+    <h3 id="total">Total: ₹0</h3>
+    <button id="place-order">Place Order</button>
+  </section>
+  <script>
+    function clearCart() {
+        localStorage.removeItem("cart");
+        location.reload();
+    }
+    </script>
+
+  <script src="cart.js"></script>
+</body>
+</html>

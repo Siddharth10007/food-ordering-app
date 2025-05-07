@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Food Ordering</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Full Stack Feast</h1>
+    <div class="theme-toggle">
+      <label class="switch">
+        <input type="checkbox" id="theme-toggle">
+        <span class="slider"></span>
+      </label>
+      <a href="cart.html" class="view-cart-button">🛒 View Cart</a>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- Left Sidebar -->
+    <div id="menu-sidebar">
+      <h2>MENU</h2>
+      <nav>
+        <a href="#breakfast">Breakfast</a>
+        <a href="#lunch">Lunch</a>
+        <a href="#sides">Sides</a>
+        <a href="#drinks">Drinks</a>
+      </nav>
+      <div style="margin-top: 20px;">
+        <button class="filter-veg" onclick="filterItems('veg')">Veg Only 🟢</button>
+        <button class="filter-non-veg" onclick="filterItems('non-veg')">Non-Veg Only 🔴</button>
+        <button class="filter-all" onclick="filterItems('all')">Show All 🍽️</button>
+      </div>
+      <!-- Order History Section -->
+      <div id="order-history">
+        <h3>Order History</h3>
+        <ul id="order-history-list"></ul>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+      <!-- 🥞 Breakfast -->
+      <section class="menu-section" id="breakfast">
+        <h2>Breakfast</h2>
+        <div class="menu-items">
+          <div class="card veg" data-name="Idli Sambar">
+            <img src="https://vaya.in/recipes/wp-content/uploads/2018/02/Idli-and-Sambar-1.jpg" alt="Idli Sambar">
+            <h3>Idli Sambar <img src="https://5.imimg.com/data5/SELLER/Default/2023/1/FC/HP/EV/74736417/plain-barcode-labels.jpeg" alt="Veg" class="veg-icon"></h3>
+            <p class="price">₹40</p>
+            <input type="number" value="0" min="0" onchange="updateCartButton(this)">
+            <button class="add-to-cart" onclick="addToCart('Idli Sambar', 40)" disabled>Add Item</button>
+          </div>
+        
+          <div class="card veg" data-name="Masala Dosa">
+            <img src="https://www.mydelicious-recipes.com/home/images/120_1080_1080/mydelicious-recipes-masala-dosa-with-batter" alt="Masala Dosa">
+            <h3>Masala Dosa <img src="https://5.imimg.com/data5/SELLER/Default/2023/1/FC/HP/EV/74736417/plain-barcode-labels.jpeg" alt="Veg" class="veg-icon"></h3>
+            <p class="price">₹50</p>
+            <input type="number" value="0" min="0" onchange="updateCartButton(this)">
+            <button class="add-to-cart" onclick="addToCart('Masala Dosa', 50)" disabled>Add Item</button>
+          </div>
+        
+          <div class="card veg" data-name="Paneer Paratha">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgdmHw6pQDvB6bG4scAH4GyBwrJCO_-ANo6w&s" alt="Paneer Paratha">
+            <h3>Paneer Paratha <img src="https://5.imimg.com/data5/SELLER/Default/2023/1/FC/HP/EV/74736417/plain-barcode-labels.jpeg" alt="Veg" class="veg-icon"></h3>
+            <p class="price">₹60</p>
+            <input type="number" value="0" min="0" onchange="updateCartButton(this)">
+            <button class="add-to-cart" onclick="addToCart('Paneer Paratha', 60)" disabled>Add Item</button>
+          </div>
+        
+          <div class="card non-veg" data-name="Boiled Egg Sandwich">
+            <img src="https://www.simplyrecipes.com/thmb/5KEzbHplXxqFntM-jqrI0QdExR4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Easy-Egg-Salad-Sandwich-LEAD-22-8ecbb89abda34a84b649ff4c44bab525.JPG" alt="Boiled Egg Sandwich">
+            <h3>Boiled Egg Sandwich <img src="https://cdn.vectorstock.com/i/1000v/00/43/non-vegetarian-sign-veg-logo-symbol-vector-50890043.jpg" alt="Non-Veg" class="nonveg-icon"></h3>
+            <p class="price">₹45</p>
+            <input type="number" value="0" min="0" onchange="updateCartButton(this)">
+            <button class="add-to-cart" onclick="addToCart('Boiled Egg Sandwich', 45)" disabled>Add Item</button>
+          </div>
+        </div>
+        
+      </section>
+
+      <!-- 🍛 Lunch -->
+      <section class="menu-section" id="lunch">
+        <h2>Lunch</h2>
+        <div class="menu-items">
+          <div class="card veg" data-name="Veg Biryani">
+            <img src="https://www.madhuseverydayindian.com/wp-content/uploads/2022/11/easy-vegetable-biryani.jpg" alt="Veg Biryani">
+            <h3>Veg Biryani <img src="https://5.imimg.com/data5/SELLER/Default/2023/1/FC/HP/EV/74736417/plain-barcode-labels.jpeg" alt="Veg" class="veg-icon"></h3>
+            <p class="price">₹80</p>
+            <input type="number" value="0" min="0" onchange="updateCartButton(this)">
+            <button class="add-to-cart" onclick="addToCart('Veg Biryani', 80)" disabled>Add Item</button>
+          </div>
+        
+          <div class="card non-veg" data-name="Chicken Curry & Rice">
+            <img src="https://healthyfitnessmeals.com/wp-content/uploads/2022/04/Chicken-Curry-Recipe-12.jpg" alt="Chicken Curry">
+            <h3>Chicken Curry & Rice <img src="https://cdn.vectorstock.com/i/1000v/00/43/non-vegetarian-sign-veg-logo-symbol-vector-50890043.jpg" alt="Non-Veg" class="nonveg-icon"></h3>
+            <p class="price">₹120</p>
+            <input type="number" value="0" min="0" onchange="updateCartButton(this)">
+            <button class="add-to-cart" onclick="addToCart('Chicken Curry & Rice', 120)" disabled>Add Item</button>
+          </div>
+        
+          <div class="card veg" data-name="Rajma Chawal">
+            <img src="https://www.secondrecipe.com/wp-content/uploads/2017/08/rajma-chawal-1.jpg" alt="Rajma Chawal">
+            <h3>Rajma Chawal <img src="https://5.imimg.com/data5/SELLER/Default/2023/1/FC/HP/EV/74736417/plain-barcode-labels.jpeg" alt="Veg" class="veg-icon"></h3>
+            <p class="price">₹70</p>
+            <input type="number" value="0" min="0" onchange="updateCartButton(this)">
+            <button class="add-to-cart" onclick="addToCart('Rajma Chawal', 70)" disabled>Add Item</button>
+          </div>
+        
+          <div class="card non-veg" data-name="Egg Curry with Roti">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqbFFFJ2pio-w0Hc6EKL8nD0Rlbqs5CNiQwQ&s" alt="Egg Curry">
+            <h3>Egg Curry with Roti <img src="https://cdn.vectorstock.com/i/1000v/00/43/non-vegetarian-sign-veg-logo-symbol-vector-50890043.jpg" alt="Non-Veg" class="nonveg-icon"></h3>
+            <p class="price">₹90</p>
+            <input type="number" value="0" min="0" onchange="updateCartButton(this)">
+            <button class="add-to-cart" onclick="addToCart('Egg Curry with Roti', 90)" disabled>Add Item</button>
+          </div>
+        </div>
+        
+      </section>
+
+      <!-- 🍟 Sides -->
+      <section class="menu-section" id="sides">
+        <h2>Sides</h2>
+        <div class="menu-items">
+          <div class="card veg" data-name="French Fries">
+            <img src="https://www.awesomecuisine.com/wp-content/uploads/2009/05/french-fries.jpg" alt="French Fries">
+            <h3>French Fries <img src="https://5.imimg.com/data5/SELLER/Default/2023/1/FC/HP/EV/74736417/plain-barcode-labels.jpeg" alt="Veg" class="veg-icon"></h3>
+            <p class="price">₹40</p>
+            <input type="number" value="0" min="0" onchange="updateCartButton(this)">
+            <button class="add-to-cart" onclick="addToCart('French Fries', 40)" disabled>Add Item</button>
+          </div>
+        
+          <div class="card non-veg" data-name="Chicken Nuggets">
+            <img src="https://feelgoodfoodie.net/wp-content/uploads/2024/11/Baked-Chicken-Nuggets-15.jpg" alt="Chicken Nuggets">
+            <h3>Chicken Nuggets <img src="https://cdn.vectorstock.com/i/1000v/00/43/non-vegetarian-sign-veg-logo-symbol-vector-50890043.jpg" alt="Non-Veg" class="nonveg-icon"></h3>
+            <p class="price">₹60</p>
+            <input type="number" value="0" min="0" onchange="updateCartButton(this)">
+            <button class="add-to-cart" onclick="addToCart('Chicken Nuggets', 60)" disabled>Add Item</button>
+          </div>
+        
+          <div class="card veg" data-name="Samosa (2 pcs)">
+            <img src="https://cdn.sanity.io/images/2t27tguw/production/3842cccf88a7b3055a63c8b67879782ee2158e25-515x438.jpg" alt="Samosa">
+            <h3>Samosa (2 pcs) <img src="https://5.imimg.com/data5/SELLER/Default/2023/1/FC/HP/EV/74736417/plain-barcode-labels.jpeg" alt="Veg" class="veg-icon"></h3>
+            <p class="price">₹30</p>
+            <input type="number" value="0" min="0" onchange="updateCartButton(this)">
+            <button class="add-to-cart" onclick="addToCart('Samosa (2 pcs)', 30)" disabled>Add Item</button>
+          </div>
+        
+          <div class="card non-veg" data-name="Fish Fingers">
+            <img src="https://www.nestlerecipescaribbean.com/sites/default/files/styles/recipe_detail_desktop_new/public/srh_recipes/81769d549bdee558b7f95f96aa6efdb1.jpg?itok=GyNdJu9k" alt="Fish Fingers">
+            <h3>Fish Fingers <img src="https://cdn.vectorstock.com/i/1000v/00/43/non-vegetarian-sign-veg-logo-symbol-vector-50890043.jpg" alt="Non-Veg" class="nonveg-icon"></h3>
+            <p class="price">₹70</p>
+            <input type="number" value="0" min="0" onchange="updateCartButton(this)">
+            <button class="add-to-cart" onclick="addToCart('Fish Fingers', 70)" disabled>Add Item</button>
+          </div>
+        </div>
+        
+      </section>
+
+      <!-- 🥤 Drinks -->
+      <section class="menu-section" id="drinks">
+        <h2>Drinks</h2>
+        <div class="menu-items">
+          <div class="card veg" data-name="Lassi">
+            <img src="https://mithaiandmore.in/cdn/shop/products/L00004_rajwadi-lassi_1080x.jpg?v=1628753217" alt="Lassi">
+            <h3>Lassi <img src="https://5.imimg.com/data5/SELLER/Default/2023/1/FC/HP/EV/74736417/plain-barcode-labels.jpeg" alt="Veg" class="veg-icon"></h3>
+            <p class="price">₹30</p>
+            <input type="number" value="0" min="0" onchange="updateCartButton(this)">
+            <button class="add-to-cart" onclick="addToCart('Lassi', 30)" disabled>Add Item</button>
+          </div>
+        
+          <div class="card veg" data-name="Cold Coffee">
+            <img src="https://www.allrecipes.com/thmb/Hqro0FNdnDEwDjrEoxhMfKdWfOY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/21667-easy-iced-coffee-ddmfs-4x3-0093-7becf3932bd64ed7b594d46c02d0889f.jpg" alt="Cold Coffee">
+            <h3>Cold Coffee <img src="https://5.imimg.com/data5/SELLER/Default/2023/1/FC/HP/EV/74736417/plain-barcode-labels.jpeg" alt="Veg" class="veg-icon"></h3>
+            <p class="price">₹50</p>
+            <input type="number" value="0" min="0" onchange="updateCartButton(this)">
+            <button class="add-to-cart" onclick="addToCart('Cold Coffee', 50)" disabled>Add Item</button>
+          </div>
+        
+          <div class="card veg" data-name="Orange Juice">
+            <img src="https://images-prod.healthline.com/hlcmsresource/images/AN_images/orange-juice-1296x728-feature.jpg" alt="Orange Juice">
+            <h3>Orange Juice <img src="https://5.imimg.com/data5/SELLER/Default/2023/1/FC/HP/EV/74736417/plain-barcode-labels.jpeg" alt="Veg" class="veg-icon"></h3>
+            <p class="price">₹40</p>
+            <input type="number" value="0" min="0" onchange="updateCartButton(this)">
+            <button class="add-to-cart" onclick="addToCart('Orange Juice', 40)" disabled>Add Item</button>
+          </div>
+        
+          <div class="card veg" data-name="Chocolate Milkshake">
+            <img src="https://lifestyleofafoodie.com/wp-content/uploads/2024/01/Chocolate-Milkshake-Recipe-7-683x1024.jpg" alt="Chocolate Milkshake">
+            <h3>Chocolate Milkshake <img src="https://5.imimg.com/data5/SELLER/Default/2023/1/FC/HP/EV/74736417/plain-barcode-labels.jpeg" alt="Veg" class="veg-icon"></h3>
+            <p class="price">₹60</p>
+            <input type="number" value="0" min="0" onchange="updateCartButton(this)">
+            <button class="add-to-cart" onclick="addToCart('Chocolate Milkshake', 60)" disabled>Add Item</button>
+          </div>
+        </div>
+        
+      </section>
+    </main>
+
+    <!-- Right Sidebar (Cart / Orders) -->
+    <aside id="my-orders">
+      <h2>My Order</h2>
+      <ul id="order-list"></ul>
+
+      <section id="order-details-section" style="display: none;">
+        <h3 id="order-title">Order Details</h3>
+        <ul id="order-items"></ul>
+        <p id="order-total"></p>
+        <button id="update-order">Update Order</button>
+        <button id="cancel-order">Cancel Order</button>
+      </section>
+      </section>
+    </aside>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,502 @@
+/* Reset */
+body, h1, h2, h3, p, a {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* General */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #fff9f5;
+  padding-bottom: 60px;
+}
+
+header {
+  background: #ff7043;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav a {
+  margin: 0 10px;
+  color: white;
+  font-weight: bold;
+}
+
+/* Layout container */
+.container {
+  display: flex;
+  gap: 20px;
+}
+
+/* Sidebar: Menu */
+#menu-sidebar {
+  width: 250px;
+  background: #f1f1f1;
+  padding: 1rem;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+
+#menu-sidebar h2 {
+  margin-bottom: 10px;
+}
+
+#menu-sidebar nav a {
+  display: block;
+  margin: 10px 0;
+  color: #333;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#menu-sidebar input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Main content area */
+main {
+  flex: 1;
+  padding: 1rem;
+}
+
+.menu-section {
+  padding: 30px 20px;
+}
+
+.menu-section h2 {
+  margin-bottom: 20px;
+}
+
+.menu-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  width: 280px;
+  text-align: center;
+  padding: 15px;
+  transition: transform 0.3s;
+  position: relative;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.card .veg-icon ,
+.card .nonveg-icon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.card .veg-icon {
+  background: green;
+}
+
+.card .nonveg-icon {
+  background: red;
+}
+
+.price {
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+input[type="number"] {
+  width: 60px;
+  padding: 5px;
+  margin: 5px 0;
+}
+
+button.add-to-cart {
+  background: #43a047;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button.add-to-cart:hover {
+  background: #2e7d32;
+}
+
+button.add-to-cart:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* Cart */
+.cart-section {
+  padding: 30px;
+  max-width: 600px;
+  margin: auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.cart-item {
+  margin-bottom: 20px;
+}
+
+.cart-item input {
+  width: 60px;
+  padding: 5px;
+}
+
+#place-order {
+  background: #ff7043;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#place-order:hover {
+  background: #e64a19;
+}
+
+/* Right Sidebar: My Orders */
+#my-orders {
+  width: 300px;
+  height: 100vh;
+  overflow-y: auto;
+  background: #f8f8f8;
+  border-left: 2px solid #ccc;
+  padding: 1rem;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  flex-shrink: 0;
+}
+
+#my-orders h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#order-list {
+  list-style: none;
+  padding: 0;
+  color: #000000;
+}
+
+#order-list li {
+  background: #fff;
+  margin: 0.5rem 0;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: background 0.3s;
+  color: #000000;
+}
+
+#order-list li:hover {
+  background: #f0f0f0;
+}
+
+/* Order details */
+#order-details-section {
+  margin-top: 2rem;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding: 1rem;
+}
+
+#order-details-section h3 {
+  margin-bottom: 10px;
+}
+
+#order-items {
+  margin-bottom: 10px;
+}
+
+#order-items li {
+  margin-bottom: 5px;
+}
+
+#order-total {
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+#update-order,
+#cancel-order {
+  background: #ff7043;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin: 5px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#update-order:hover {
+  background: #e64a19;
+}
+
+#cancel-order {
+  background: #e53935;
+}
+
+#cancel-order:hover {
+  background: #c62828;
+}
+
+/* 🌗 Theme Toggle */
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 24px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px; width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #ff7043;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* 🌙 Dark Mode */
+body.dark-mode {
+  background: #121212;
+  color: #f0f0f0;
+}
+
+body.dark-mode header {
+  background: #212121;
+  color: #fff;
+}
+
+body.dark-mode .card {
+  background: #1e1e1e;
+  color: #eee;
+}
+
+body.dark-mode .cart-section {
+  background: #1e1e1e;
+  color: #f0f0f0;
+}
+
+body.dark-mode #my-orders {
+  background: #1f1f1f;
+  border-left-color: #444;
+}
+
+body.dark-mode #order-details-section {
+  background: #292929;
+  border-color: #444;
+}
+
+/* NEW: Sidebar dark mode styles */
+body.dark-mode #menu-sidebar {
+  background: #333; /* Dark background for the sidebar */
+  color: #fff; /* White text for better visibility */
+}
+
+body.dark-mode #menu-sidebar nav a {
+  color: #fff; /* White text for links in dark mode */
+}
+
+body.dark-mode #menu-sidebar input {
+  background: #444; /* Dark background for the input */
+  color: #fff; /* White text inside the search bar */
+  border: 1px solid #666; /* Lighter border for contrast */
+}
+
+/* Smooth transition for background and text colors */
+body, .card, .cart-section, #my-orders, #order-details-section, #menu-sidebar {
+  transition: background 0.4s, color 0.4s;
+}
+
+/* Veg and Non-Veg Only buttons */
+button.filter-veg {
+  background-color: #43a047; /* Green color for Veg */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+button.filter-veg:hover {
+  background-color: #388e3c; /* Darker green on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+button.filter-non-veg {
+  background-color: #e53935; /* Red color for Non-Veg */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+button.filter-non-veg:hover {
+  background-color: #c62828; /* Darker red on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Optional: Style for 'Add to Cart' button for better consistency */
+button.add-to-cart {
+  background: #43a047; /* Green color for Add to Cart */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+button.add-to-cart:hover {
+  background: #388e3c; /* Darker green on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Optional: Style for the Theme Toggle Switch */
+.theme-toggle input:checked + .slider {
+  background-color: #ff7043; /* Matching orange color for theme toggle */
+}
+
+.theme-toggle .slider:before {
+  background-color: white;
+}
+
+body.dark-mode .theme-toggle .slider:before {
+  background-color: #212121; /* Dark mode theme toggle circle */
+}
+button.filter-all,
+#menu-sidebar button.filter-all {
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s, transform 0.3s;
+  margin-left: 10px;
+}
+
+button.filter-all:hover,
+#menu-sidebar button.filter-all:hover {
+  background-color: #1565c0;
+  transform: scale(1.05);
+}
+.view-cart-btn {
+  position: fixed;
+  top: 25px;
+  right: 300px;
+  padding: 8px 14px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  align-items: center;
+}
+
+#order-history {
+  margin-top: 40px;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
+
+#order-history-list {
+  list-style: none;
+  padding: 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+#order-history-list li {
+  background: #fff;
+  margin: 5px 0;
+  padding: 8px;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+
+#order-history-list li:hover {
+  background: #f0f0f0;
+}
