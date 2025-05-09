@@ -1,4 +1,7 @@
 /* Reset */
+.main-heading {
+  font-family: 'algerian';
+}
 body, h1, h2, h3, p, a {
   margin: 0;
   padding: 0;
@@ -9,7 +12,7 @@ body, h1, h2, h3, p, a {
 /* General */
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: #fff9f5;
+  background-image: url(https://img.freepik.com/free-vector/fast-food-pattern_1108-194.jpg?ga=GA1.1.646782336.1746809382&semt=ais_hybrid&w=740);
   padding-bottom: 60px;
 }
 
@@ -333,7 +336,7 @@ input:checked + .slider:before {
 
 /* 🌙 Dark Mode */
 body.dark-mode {
-  background: #121212;
+  background-image: url(https://img.freepik.com/free-vector/vector-seamless-food-chalkboard-wallpapers-mostly-used-restaurants-designs_1284-43589.jpg?ga=GA1.1.646782336.1746809382&semt=ais_hybrid&w=740);
   color: #f0f0f0;
 }
 
@@ -504,4 +507,118 @@ button.filter-all:hover,
 
 #order-history-list li:hover {
   background: #f0f0f0;
+}
+.user-info {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff8f0;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.user-info h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.user-info label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+
+.user-info input,
+.user-info select {
+  width: 97%;
+  padding: 8px;
+  margin-top: 4px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+body.dark-mode .user-info {
+  background: #1e1e1e;
+  color: #f0f0f0;
+  border: 1px solid #444;
+}
+
+body.dark-mode .user-info input,
+body.dark-mode .user-info select {
+  background: #2c2c2c;
+  color: #f0f0f0;
+  border: 1px solid #666;
+}
+
+body.dark-mode .user-info input::placeholder {
+  color: #aaa;
+}
+body.dark-mode .customer {
+  color: #f0f0f0;
+}
+
+.user-info textarea {
+  width: 97%;
+  padding: 8px;
+  margin-top: 4px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  resize: vertical;
+}
+body.dark-mode .user-info textarea {
+  background: #2c2c2c;
+  color: #f0f0f0;
+  border: 1px solid #666;
+}
+.highlight {
+  background-color: rgba(255, 255, 255, 0.8); /* light highlight */
+  color:#000000 /* white text */
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-align: center;
+}
+
+body.dark-mode .highlight {
+  background-color: rgba(33, 33, 33, 0.8); /* light highlight */
+  color:#ffffff /* white text */
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+header.main {
+  display: flex;
+  justify-content: space-between; /* left and right sections */
+  align-items: center;
+  background: #ff7043;
+  color: white;
+  padding: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 0 auto; /* centers the group */
+}
+
+.main-heading {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.header-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid rgb(255, 255, 255);
 }

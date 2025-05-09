@@ -53,11 +53,20 @@ cartItemsContainer.addEventListener("input", (e) => {
 placeOrderBtn.addEventListener("click", async () => {
   if (cart.length === 0) return alert("Your cart is empty!");
 
-  const total = renderCart(); // Get updated total
+  const name = document.getElementById("user-name").value.trim();
+  const location = document.getElementById("user-location").value.trim();
+  const paymentMethod = document.getElementById("payment-method").value;
+
+  if (!name || !location || !paymentMethod) {
+    return alert("Please fill in your name, location, and payment method.");
+  }
+
+  const total = renderCart();
+
   const res = await fetch("/place-order", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ items: cart, total }),
+    body: JSON.stringify({ name, location, paymentMethod, items: cart, total }),
   });
 
   const data = await res.json();
@@ -70,9 +79,26 @@ placeOrderBtn.addEventListener("click", async () => {
   }
 });
 
+
 renderCart();
 
 // Function to handle the theme toggle
-document.getElementById("theme-toggle").addEventListener("change", function () {
-  document.body.classList.toggle("dark-mode", this.checked);
-});
+  const toggle = document.getElementById("theme-toggle");
+  const prefersDark = localStorage.getItem("theme") === "dark";
+
+  if (prefersDark) {
+    document.body.classList.add("dark-mode");
+    if (toggle) toggle.checked = true;
+  }
+
+  if (toggle) {
+    toggle.addEventListener("change", () => {
+      if (toggle.checked) {
+        document.body.classList.add("dark-mode");
+        localStorage.setItem("theme", "dark");
+      } else {
+        document.body.classList.remove("dark-mode");
+        localStorage.setItem("theme", "light");
+      }
+    });
+  }

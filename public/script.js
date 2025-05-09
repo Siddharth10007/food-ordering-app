@@ -2,9 +2,25 @@
 let cart = [];
 
 // Function to handle the theme toggle
-document.getElementById("theme-toggle").addEventListener("change", function () {
-  document.body.classList.toggle("dark-mode", this.checked);
-});
+  const toggle = document.getElementById("theme-toggle");
+  const prefersDark = localStorage.getItem("theme") === "dark";
+
+  if (prefersDark) {
+    document.body.classList.add("dark-mode");
+    if (toggle) toggle.checked = true;
+  }
+
+  if (toggle) {
+    toggle.addEventListener("change", () => {
+      if (toggle.checked) {
+        document.body.classList.add("dark-mode");
+        localStorage.setItem("theme", "dark");
+      } else {
+        document.body.classList.remove("dark-mode");
+        localStorage.setItem("theme", "light");
+      }
+    });
+  }
 
 // Function to filter items based on type (Veg/Non-Veg)
 function filterItems(type) {

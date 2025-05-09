@@ -17,17 +17,18 @@ mongoose.connect(process.env.MONGO_URI)
 // ✅ Main route for placing order from cart.html
 app.post("/place-order", async (req, res) => {
   try {
-    const { items, total } = req.body;
-    const order = new Order({
-      items,
-      total,
-      placedAt: new Date()
-    });
+    const { name, location, paymentMethod, items } = req.body;
+    if (!name || !location || !paymentMethod || !items || items.length === 0) {
+      return res.status(400).json({ error: "Incomplete order details." });
+    }
+
+    const order = new Order({ name, location, paymentMethod, items });
     await order.save();
-    res.status(201).json({ message: "Order placed successfully" });
+
+    res.status(201).json({ message: "Order placed successfully!" });
   } catch (error) {
-    console.error("Order placement error:", error);
-    res.status(500).json({ error: "Failed to place order" });
+    console.error("Order error:", error);
+    res.status(500).json({ error: "Server error." });
   }
 });
 

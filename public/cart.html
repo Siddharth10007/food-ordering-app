@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Your Cart</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="https://static.vecteezy.com/system/resources/thumbnails/004/798/846/small/shopping-cart-logo-or-icon-design-vector.jpg" type="image/x-icon">
 </head>
 <body>
   <header>
@@ -24,6 +25,23 @@
   <section class="cart-section">
     <div id="cart-items"></div>
     <h3 id="total">Total: ₹0</h3>
+    <section class="user-info">
+  <h2 class="customer">Customer Info</h2>
+  <label for="user-name">Name:</label>
+  <input type="text" id="user-name" placeholder="Enter your name" required>
+
+  <label for="user-location">Location:</label>
+  <textarea id="user-location" placeholder="Enter delivery address" rows="3" required></textarea>
+
+  <label for="payment-method">Payment Method:</label>
+  <select id="payment-method">
+    <option value="Cash">Cash</option>
+    <option value="Card">Card</option>
+    <option value="UPI">UPI</option>
+  </select>
+</section>
+
+
     <button id="place-order">Place Order</button>
   </section>
   <script>
